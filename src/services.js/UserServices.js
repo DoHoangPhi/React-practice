@@ -17,4 +17,20 @@ const postCreateUser = (name, job) => {
         }
     });
 }
-export { fetchAllUser, postCreateUser };
+const putUpdateUser = (name, job) => {
+    return axios.put("/api/users/2", { name: name, job: job }, {
+        headers: {
+            'x-api-key': 'reqres-free-v1',
+            'Content-Type': 'application/json'
+        }
+    });
+}
+const deleteUser = (id) => {
+    return axios.delete(`/api/users/${id}`, {
+        headers: {
+            'x-api-key': 'reqres-free-v1',
+            'Content-Type': 'application/json'
+        }
+    });
+}
+export { fetchAllUser, postCreateUser, putUpdateUser, deleteUser };
